@@ -1,0 +1,48 @@
+﻿@model Restaurant.Models.Client
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Client</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Masa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Masa)
+            @Html.ValidationMessageFor(model => model.Masa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comanda, "MeniuClient")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Comanda", String.Empty)
+            @Html.ValidationMessageFor(model => model.Comanda)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Chelner, "Chelner1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Chelner", String.Empty)
+            @Html.ValidationMessageFor(model => model.Chelner)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
